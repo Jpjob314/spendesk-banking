@@ -1,0 +1,11 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "sa",
+    "password": "$p€nd€sk",
+    "database": "spendesk",
+    "entities": ["src/entities/*.ts"],
+    "logging": "all",
+    "synchronize": true
+  }

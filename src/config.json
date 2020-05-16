@@ -1,0 +1,3 @@
+{
+    "fixerEndpoint": "http://data.fixer.io/api/latest?access_key=621dd33e46753cd271d0e3026bd65d3c&symbols=USD,GBP,EUR"
+}
