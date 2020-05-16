@@ -12,43 +12,43 @@ createConnection().then((connection: Connection) => {
     const companyDao = new CompanyDao(connection);
 
     /******************************************************************************
-     *                      Get All Companys - "GET /api/companys/all"
+     *                      Get All companies - "GET /api/companies/all"
      ******************************************************************************/
 
     router.get('/all', async (req: Request, res: Response) => {
-        const companys = await companyDao.getAll();
-        return res.status(OK).json({ companys });
+        const companies = await companyDao.getAll();
+        return res.status(OK).json({ companies });
     });
 
 
     /******************************************************************************
-     *                      Get All Companys - "GET /api/companys/all"
+     *                      Get All companies - "GET /api/companies/all"
      ******************************************************************************/
 
     router.get('/:id', async (req: Request, res: Response) => {
         const { id } = req.params as ParamsDictionary;
-        const companys = await companyDao.getOne({ id });
-        return res.status(OK).json({ companys });
+        const companies = await companyDao.getOne({ id });
+        return res.status(OK).json({ companies });
     });
 
     /******************************************************************************
-     *                       Add One - "POST /api/companys/add"
+     *                       Add One - "POST /api/companies/add"
      ******************************************************************************/
 
     router.post('/add', async (req: Request, res: Response) => {
-        const { company } = req.body;
+        let { company } = req.body;
         if (!company) {
             return res.status(BAD_REQUEST).json({
                 error: paramMissingError,
             });
         }
-        await companyDao.add(company);
-        return res.status(CREATED).end();
+        company = await companyDao.add(company);
+        return res.status(CREATED).json({ company });
     });
 
 
     /******************************************************************************
-     *                       Update - "PUT /api/companys/update"
+     *                       Update - "PUT /api/companies/update"
      ******************************************************************************/
 
     router.put('/update', async (req: Request, res: Response) => {
@@ -65,7 +65,7 @@ createConnection().then((connection: Connection) => {
 
 
     /******************************************************************************
-     *                    Delete - "DELETE /api/companys/delete/:id"
+     *                    Delete - "DELETE /api/companies/delete/:id"
      ******************************************************************************/
 
     router.delete('/delete/:id', async (req: Request, res: Response) => {

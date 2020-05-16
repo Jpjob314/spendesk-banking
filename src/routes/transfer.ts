@@ -40,8 +40,8 @@ createConnection().then((connection: Connection) => {
 
         const response = await (await fetch(config.fixerEndpoint)).json();
         if (response && response.rates) {
-            const transfers = await transferDao.transfer(from, to, Number(amount), response.rates);
-            return res.status(OK).json({ transfers });
+            const wallets = await transferDao.transfer(from, to, Number(amount), response.rates);
+            return res.status(OK).json({ wallets });
         } else {
             return res.status(GATEWAY_TIMEOUT).json({
                 error: ratesMissingError,

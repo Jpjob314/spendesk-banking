@@ -30,7 +30,7 @@ createConnection().then((connection: Connection) => {
 
     router.post('/add', async (req: Request, res: Response) => {
         checkHeaders(req);
-        const { card } = req.body;
+        let { card } = req.body;
         const { usr, cmp } = req.headers;
         if (!card) {
             return res.status(BAD_REQUEST).json({
@@ -39,8 +39,8 @@ createConnection().then((connection: Connection) => {
         } else {
             card.userId = usr;
         }
-        await cardDao.add(new Card(card));
-        return res.status(CREATED).end();
+        card = await cardDao.add(new Card(card));
+        return res.status(CREATED).json({ card });
     });
 
     /******************************************************************************

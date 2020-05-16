@@ -37,14 +37,14 @@ createConnection().then((connection: Connection) => {
      ******************************************************************************/
 
     router.post('/add', async (req: Request, res: Response) => {
-        const { user } = req.body;
+        let { user } = req.body;
         if (!user) {
             return res.status(BAD_REQUEST).json({
                 error: paramMissingError,
             });
         }
-        await userDao.add(user);
-        return res.status(CREATED).end();
+        user = await userDao.add(user);
+        return res.status(CREATED).json({ user });
     });
 
 
