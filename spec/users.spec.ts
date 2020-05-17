@@ -1,13 +1,13 @@
-import supertest from 'supertest';
-import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
-import { Response, SuperTest, Test } from 'supertest';
-
-import app from 'src/server';
 import UserDao from '@daos/userDao';
 import User from '@entities/user';
-import { pErr } from '@shared/functions';
 import { paramMissingError } from '@shared/constants';
+import { pErr } from '@shared/functions';
+import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
+import app from 'src/server';
+import supertest, { Response, SuperTest, Test } from 'supertest';
 import { DeleteResult } from 'typeorm';
+import TestsConnection from './connection';
+
 
 describe('Users Routes', () => {
     const usersPath = '/api/users';
@@ -17,9 +17,13 @@ describe('Users Routes', () => {
     const deleteUserPath = `${usersPath}/delete/:id`;
 
     let agent: SuperTest<Test>;
+    let userDao: UserDao;
 
-    beforeAll((done) => {
+    beforeAll(async (done) => {
         agent = supertest.agent(app);
+        if (!userDao) {
+            userDao = new UserDao(await TestsConnection.getConnection());
+        }
         done();
     });
 

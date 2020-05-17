@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "17c1981e-0a52-48a4-ba16-7dd61fb9affa",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cards",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "usr",
+						"value": "7",
+						"type": "text"
+					},
+					{
+						"key": "cmp",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/cards/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cards",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": " application/json"
+					},
+					{
+						"key": "usr",
+						"type": "text",
+						"value": "7"
+					},
+					{
+						"key": "cmp",
+						"type": "text",
+						"value": "1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"card\":{\"walletId\": 12, \"currency\": \"USD\" }}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cards/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cards",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Load / Unload",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": " application/json"
+					},
+					{
+						"key": "usr",
+						"type": "text",
+						"value": "7"
+					},
+					{
+						"key": "cmp",
+						"type": "text",
+						"value": "1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"card\":{ \"id\": 7, \"load\": 22.5 }}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cards/load",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cards",
+						"load"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Block / Unblock",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": " application/json"
+					},
+					{
+						"key": "usr",
+						"type": "text",
+						"value": "7"
+					},
+					{
+						"key": "cmp",
+						"type": "text",
+						"value": "1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"card\":{ \"id\": 7, \"isBlocked\": true }}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cards/block",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cards",
+						"block"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/companies/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"companies",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Company",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": " application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"company\":{\"name\":\"test\"}}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/companies/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"companies",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "usr",
+						"value": "7",
+						"type": "text"
+					},
+					{
+						"key": "cmp",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/transfers/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transfers",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "usr",
+						"value": "7",
+						"type": "text"
+					},
+					{
+						"key": "cmp",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"from\": 12,\n\t\"to\": 15, \n\t\"amount\": 20.22\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/transfers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transfers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/users/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\"name\":\"aaa\",\"email\":\"bbb\", \"companyId\" : 1}}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wallets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "usr",
+						"value": "7",
+						"type": "text"
+					},
+					{
+						"key": "cmp",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/wallets/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wallets",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Wallet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": " application/json"
+					},
+					{
+						"key": "usr",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "cmp",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"wallet\":{\"currency\": \"USD\"}}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/wallets/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wallets",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "63946c72-0141-4e80-8bbb-0b1b3114de8e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9ce93723-100d-49a8-9eb0-4cd847c74264",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
